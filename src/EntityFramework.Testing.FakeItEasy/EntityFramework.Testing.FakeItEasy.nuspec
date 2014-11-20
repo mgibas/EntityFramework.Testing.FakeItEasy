@@ -2,10 +2,11 @@
 <package >
   <metadata>
     <id>EntityFramework.Testing.FakeItEasy</id>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <title>EntityFramework.Testing.FakeItEasy</title>
     <authors>badkenny</authors>
     <owners>badkenny</owners>
+    <projectUrl>https://github.com/mgibas/EntityFramework.Testing.FakeItEasy</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Simple EntityFramework testing library for FakeItEasy</description>
     <copyright>Copyright 2014</copyright>
