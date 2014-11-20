@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>EntityFramework.Testing.FakeItEasy</id>
+    <version>0.1.0</version>
+    <title>EntityFramework.Testing.FakeItEasy</title>
+    <authors>badkenny</authors>
+    <owners>badkenny</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple EntityFramework testing library for FakeItEasy</description>
+    <copyright>Copyright 2014</copyright>
+    <tags>EntityFramework FakeItEasy</tags>
+  </metadata>
+</package>
