@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+
 namespace EntityFramework.FakeItEasy
 {
-    public static class A_EF
+    public static class Aef
     {
         public static DbSet<T> FakeDbSet<T>(IEnumerable<T> data) where T : class
         {
@@ -16,6 +17,17 @@ namespace EntityFramework.FakeItEasy
             A.CallTo(() => ((IQueryable<T>)fakeDbSet).GetEnumerator()).Returns(data.AsQueryable().GetEnumerator());
 
             return fakeDbSet;
+        }
+
+        public static DbSet<T> FakeDbSet<T>(int numberOfFakes) where T : class
+        {
+            var data = A.CollectionOfFake<T>(numberOfFakes);
+            return FakeDbSet(data);
+        }
+
+        public static DbSet<T> FakeDbSet<T>() where T : class
+        {
+            return FakeDbSet(new List<T>());
         }
     }
 }
