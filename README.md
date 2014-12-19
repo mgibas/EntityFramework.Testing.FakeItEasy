@@ -7,16 +7,16 @@ Getting Started:
 
 - Creating fake DbSet<T>:
 ```csharp
-var fakeDbSet = A_EF.FakeDbSet(new List<Model>{...});
+var fakeDbSet = Aef.FakeDbSet(new List<Model>{...});
 A.CallTo(() => context.Models).Returns(fakeDbSet);
 ```
 
 ```csharp
-var fakeDbSet = A_EF.FakeDbSet<Model>(55); //55 Model fakes created by FakeItEasy
+var fakeDbSet =  Aef.FakeDbSet<Model>(55); //55 Model fakes created by FakeItEasy
 A.CallTo(() => context.Models).Returns(fakeDbSet);
 ```
 
 ```csharp
-var fakeDbSet = A_EF.FakeDbSet<Model>(); //Empty collection
+var fakeDbSet = Aef.FakeDbSet<Model>(); //Empty collection
 A.CallTo(() => context.Models).Returns(fakeDbSet);
 ```
