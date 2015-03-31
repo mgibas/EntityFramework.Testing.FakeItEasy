@@ -1,4 +1,4 @@
-EntityFramework.Testing.FakeItEasy
+EntityFramework.Testing.FakeItEasy [![Build status](https://ci.appveyor.com/api/projects/status/uquci4vq25l8yc3n?retina=true)](https://ci.appveyor.com/project/mgibas/entityframework-testing-fakeiteasy)
 ==================================
 
 Simple EntityFramework FakeItEasy utility class - fell free and contribute!
