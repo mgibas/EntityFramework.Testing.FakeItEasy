@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Testing.FakeItEasy", "EntityFramework.Testing.FakeItEasy\EntityFramework.Testing.FakeItEasy.csproj", "{958C452B-41EC-45EF-85DE-FD7BCC6D307A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework.Testing.FakeItEasy.Tests", "EntityFramework.Testing.FakeItEasy.Tests\EntityFramework.Testing.FakeItEasy.Tests.csproj", "{425E9BF9-3687-4365-8B60-565476E8E094}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{958C452B-41EC-45EF-85DE-FD7BCC6D307A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{958C452B-41EC-45EF-85DE-FD7BCC6D307A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{958C452B-41EC-45EF-85DE-FD7BCC6D307A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{425E9BF9-3687-4365-8B60-565476E8E094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425E9BF9-3687-4365-8B60-565476E8E094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425E9BF9-3687-4365-8B60-565476E8E094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425E9BF9-3687-4365-8B60-565476E8E094}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
