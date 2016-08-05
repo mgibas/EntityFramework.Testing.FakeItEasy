@@ -22,6 +22,7 @@ Thumbs.db
 *.lib
 *.sbr
 ~$*
+*.userprefs
 
 #ignore folders build by Visual Studio 
 obj
