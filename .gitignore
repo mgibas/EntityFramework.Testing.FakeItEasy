@@ -28,6 +28,7 @@ obj
 bin
 packages
 _bin_deployableAssemblies
+.DS_Store
 
 #ignore archives
 *.zip
