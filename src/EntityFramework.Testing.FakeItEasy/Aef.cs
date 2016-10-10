@@ -56,6 +56,11 @@ namespace EntityFramework.FakeItEasy
           data.Add(item);
       });
       A.CallTo(() => fakeDbSet.Remove(A<T>._)).Invokes((T item) => data.Remove(item));
+      A.CallTo(() => fakeDbSet.RemoveRange(A<IEnumerable<T>>._)).Invokes((IEnumerable<T> items) =>
+      {
+          foreach (var item in items.ToList())
+              data.Remove(item);
+      });
     }
   }
 }
