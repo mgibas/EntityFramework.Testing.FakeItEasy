@@ -81,6 +81,21 @@ namespace EntityFramework.Testing.FakeItEasy.Tests
     }
 
     [Test]
+    public void RemoveRange_ShouldRemoveItems()
+    {
+      var fakeDbSet = Aef.FakeDbSet(new List<TestModel>
+      {
+          new TestModel {Property = "a"},
+          new TestModel {Property = "a"},
+          new TestModel {Property = "b"}
+      });
+
+      fakeDbSet.RemoveRange(fakeDbSet.Where(x => x.Property == "a"));
+
+      Assert.That(fakeDbSet.Count(), Is.EqualTo(1));
+    }
+
+    [Test]
     public void Include_ReturnsItSelf()
     {
       var fakeDbSet = Aef.FakeDbSet(new List<TestModel>());
@@ -91,5 +106,6 @@ namespace EntityFramework.Testing.FakeItEasy.Tests
 
   public class TestModel
   {
+      public string Property { get; set; }
   }
 }
