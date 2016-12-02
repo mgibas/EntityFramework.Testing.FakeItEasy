@@ -13,7 +13,7 @@
 
 ===
 
-Simple EntityFramework FakeItEasy utility class - fell free and contribute!
+Simple EntityFramework FakeItEasy utility class - feel free to contribute!
 
 Getting Started:
 
