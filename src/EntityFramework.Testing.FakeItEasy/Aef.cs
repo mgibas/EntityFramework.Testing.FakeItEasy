@@ -45,6 +45,7 @@ namespace EntityFramework.FakeItEasy
       A.CallTo(() => fakeDbSet.Expression).ReturnsLazily(l => data.AsQueryable().Expression);
       A.CallTo(() => fakeDbSet.ElementType).ReturnsLazily(l => data.AsQueryable().ElementType);
       A.CallTo(() => fakeDbSet.GetEnumerator()).ReturnsLazily(l => data.AsQueryable().GetEnumerator());
+      A.CallTo(() => fakeDbSet.AsNoTracking()).Returns(fakeDbSet);
     }
 
     private static void CollectionSetUp<T>(DbSet<T> fakeDbSet, ICollection<T> data) where T : class
