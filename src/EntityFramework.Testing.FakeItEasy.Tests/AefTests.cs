@@ -1,119 +1,116 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using EntityFramework.FakeItEasy;
+﻿using EntityFramework.FakeItEasy;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EntityFramework.Testing.FakeItEasy.Tests
 {
-	[TestFixture]
-	public class AefTests
-	{
-		[Test]
-		public void Add_ShouldAddItem()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
-			var newModel = new TestModel();
+    [TestFixture]
+    public class AefTests
+    {
+        [Test]
+        public void Add_ShouldAddItem()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
+            var newModel = new TestModel();
 
-			fakeDbSet.Add(newModel);
+            fakeDbSet.Add(newModel);
 
-			CollectionAssert.Contains(fakeDbSet.ToList(), newModel);
-		}
+            CollectionAssert.Contains(fakeDbSet.ToList(), newModel);
+        }
 
-		[Test]
-		public void Add_ShouldNotThrowWhenIteratingThrough()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
+        [Test]
+        public void Add_ShouldNotThrowWhenIteratingThrough()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
 
-			fakeDbSet.Add(new TestModel());
+            fakeDbSet.Add(new TestModel());
 
-			foreach (var model in fakeDbSet)
-			{
-				Assert.Pass();
-			}
-		}
+            foreach (var model in fakeDbSet)
+            {
+                Assert.Pass();
+            }
+        }
 
-		[Test]
-		public void AddRange_ShouldAddItems()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
-			var newModels = new[] { new TestModel(), new TestModel() };
+        [Test]
+        public void AddRange_ShouldAddItems()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
+            var newModels = new[] { new TestModel(), new TestModel() };
 
-			fakeDbSet.AddRange(newModels);
+            fakeDbSet.AddRange(newModels);
 
-			CollectionAssert.IsSubsetOf(newModels, fakeDbSet.ToList());
-		}
+            CollectionAssert.IsSubsetOf(newModels, fakeDbSet.ToList());
+        }
 
-		[Test]
-		public void AddRange_ShouldNotThrowWhenIteratingThrough()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
+        [Test]
+        public void AddRange_ShouldNotThrowWhenIteratingThrough()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
 
-			fakeDbSet.AddRange(new[] { new TestModel(), new TestModel() });
+            fakeDbSet.AddRange(new[] { new TestModel(), new TestModel() });
 
-			foreach (var model in fakeDbSet)
-			{
-				Assert.Pass();
-			}
-		}
+            foreach (var model in fakeDbSet)
+            {
+                Assert.Pass();
+            }
+        }
 
-		[Test]
-		public void Remove_ShouldRemoveItem()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
-			var toRemove = fakeDbSet.First();
+        [Test]
+        public void Remove_ShouldRemoveItem()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
+            var toRemove = fakeDbSet.First();
 
-			fakeDbSet.Remove(toRemove);
+            fakeDbSet.Remove(toRemove);
 
-			CollectionAssert.DoesNotContain(fakeDbSet.ToList(), toRemove);
-		}
+            CollectionAssert.DoesNotContain(fakeDbSet.ToList(), toRemove);
+        }
 
-		[Test]
-		public void Remove_ShouldNotThrowWhenIteratingThrough()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
+        [Test]
+        public void Remove_ShouldNotThrowWhenIteratingThrough()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel> { new TestModel(), new TestModel() });
 
-			fakeDbSet.Remove(fakeDbSet.First());
+            fakeDbSet.Remove(fakeDbSet.First());
 
-			foreach (var model in fakeDbSet)
-			{
-				Assert.Pass();
-			}
-		}
+            foreach (var model in fakeDbSet)
+            {
+                Assert.Pass();
+            }
+        }
 
-		[Test]
-		public void RemoveRange_ShouldRemoveItems()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel>
-			{
-				new TestModel {Property = "a"},
-				new TestModel {Property = "a"},
-				new TestModel {Property = "b"}
-			});
+        [Test]
+        public void RemoveRange_ShouldRemoveItems()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel>
+            {
+                new TestModel {Property = "a"},
+                new TestModel {Property = "a"},
+                new TestModel {Property = "b"}
+            });
 
-			fakeDbSet.RemoveRange(fakeDbSet.Where(x => x.Property == "a"));
+            fakeDbSet.RemoveRange(fakeDbSet.Where(x => x.Property == "a"));
 
-			Assert.That(fakeDbSet.Count(), Is.EqualTo(1));
-		}
+            Assert.That(fakeDbSet.Count(), Is.EqualTo(1));
+        }
 
-		[Test]
-		public void Include_ReturnsItSelf()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel>());
+        [Test]
+        public void Include_ReturnsItSelf()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel>());
 
-			Assert.AreSame(fakeDbSet, fakeDbSet.Include("asdas"));
-		}
+            Assert.AreSame(fakeDbSet, fakeDbSet.Include("asdas"));
+        }
 
-		[Test]
-		public void AsNoTracking_ReturnsItSelf()
-		{
-			var fakeDbSet = Aef.FakeDbSet(new List<TestModel>());
+        [Test]
+        public void AsNoTracking_ReturnsItSelf()
+        {
+            var fakeDbSet = Aef.FakeDbSet(new List<TestModel>());
 
-			Assert.AreSame(fakeDbSet, fakeDbSet.AsNoTracking());
-		}
-	}
+            Assert.AreSame(fakeDbSet, fakeDbSet.AsNoTracking());
+        }
+    }
 
-	public class TestModel
-	{
-		public string Property { get; set; }
-	}
+
 }
